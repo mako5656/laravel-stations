@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Practice;
+use App\Models\Practice;
 
 class PracticeController extends Controller
 {
@@ -25,7 +25,8 @@ class PracticeController extends Controller
 
     public function getPractice()
     {
-        $practice = Practice::all();
-        return response()->json($practice);
+        $practices = Practice::all();
+        return view('getPractice', ['practices' => $practices]);
     }
+
 }
